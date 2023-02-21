@@ -9,8 +9,16 @@ import MovieComponents from '../components/movie';
 import IMovie from '../models/movie';
 
 
+interface MovieListProps {
+  loading: boolean;
+  getMoviesData: IMovie[];
+  getMoviesError: string;
+  searchInputValue: string;
+  getMoviesApi(searchText: string, successCallback: any, errorCallback: any): any
+}
 
-function MovieList({ loading, getMoviesData, getMoviesError, searchInputValue, getMoviesApi }: any): JSX.Element {
+
+function MovieList({ loading, getMoviesData, getMoviesError, searchInputValue, getMoviesApi }: MovieListProps): JSX.Element {
   const [searchText, setSearchText] = useState('');
   const timerRef = useRef<NodeJS.Timeout>();
 
@@ -50,7 +58,7 @@ function MovieList({ loading, getMoviesData, getMoviesError, searchInputValue, g
 
       {getMoviesData &&
 
-        getMoviesData.map((movie: IMovie) => (
+        getMoviesData.map((movie) => (
           <MovieComponents key={movie.imdbID} movie={movie} />
         ))
       }

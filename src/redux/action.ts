@@ -43,7 +43,7 @@ export const getMovieDetailApi = (id: string, callbackSuccess: any, callbackFail
         callbackSuccess(res.data);
       })
       .catch(err => {
-        dispatch({ type: GET_MOVIES_FAILED, payload: err });
+        dispatch({ type: GET_MOVIE_DETAILS_FAILED, payload: err });
         callbackFailed(err);
       });
   };

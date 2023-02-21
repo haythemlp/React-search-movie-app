@@ -1,5 +1,5 @@
 import { Backdrop, Box, Chip, CircularProgress, Divider, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import IMovie from "../models/movie";
@@ -11,10 +11,7 @@ interface MovieDetailProps {
     loading: boolean;
     getMovieDetailData?: IMovie;
     getMovieDetailError?: any;
-    getMovieDetailApi(id: string | undefined, callback: any, errorCallback: any): void
-
-
-
+    getMovieDetailApi(id: string, successCallback: any, errorCallback: any): void
 }
 
 function MovieDetail({ loading, getMovieDetailData, getMovieDetailError, getMovieDetailApi }: MovieDetailProps): JSX.Element {
@@ -23,7 +20,7 @@ function MovieDetail({ loading, getMovieDetailData, getMovieDetailError, getMovi
 
 
     useEffect(() => {
-        getMovieDetailApi(id, () => { }, () => { })
+        if (id) getMovieDetailApi(id, () => { }, () => { })
     }, [id]);
 
     if (loading) {

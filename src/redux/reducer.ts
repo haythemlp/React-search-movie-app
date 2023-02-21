@@ -57,16 +57,18 @@ export default (state = INITIAL_STATE, action: IAction): IState => {
                 ...state, loading: false, getMoviesResult: { data: action.payload }
             };
 
+        // set search text
         case SET_SEARCH_INPUT_VALUE:
             return { ...state, searchInputValue: action.payload }
 
+        //set movie details
         case GET_MOVIE_DETAILS:
             return {
                 ...state, loading: true
             };
         case GET_MOVIE_DETAILS_FAILED:
             return {
-                ...state, loading: false, getMovieDetail: {  error: action.payload }
+                ...state, loading: false, getMovieDetail: { error: action.payload }
             };
         case GET_MOVIE_DETAILS_SUCCESS:
             return {
