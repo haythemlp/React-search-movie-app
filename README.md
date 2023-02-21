@@ -19,7 +19,7 @@ Clicking on a movie card will take you to a detail page for that movie, which di
 
 **Technologies Used**
 
-- React
+- React Typescript
 - OMDBAPI
 - Material-UI
 - Redux Thunk/toolkit
