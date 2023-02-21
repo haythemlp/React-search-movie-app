@@ -53,9 +53,8 @@ function MovieList({ loading, getMoviesData, getMoviesError, searchInputValue, g
         getMoviesData.map((movie: IMovie) => (
           <MovieComponents key={movie.imdbID} movie={movie} />
         ))
-
-
       }
+      {getMoviesError && (<h1>{getMoviesError}</h1>)}
     </Grid>
     <Backdrop
       sx={{ color: '#fff', zIndex: 999999 }}
